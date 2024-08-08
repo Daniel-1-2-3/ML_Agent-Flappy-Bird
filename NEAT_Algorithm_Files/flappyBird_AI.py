@@ -2,6 +2,11 @@ import time
 import pygame
 import neat
 import os
+import sys
+
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(parent_dir)
+
 from components.bird import Bird
 from components.base import Base
 from components.pipe import Pipe
