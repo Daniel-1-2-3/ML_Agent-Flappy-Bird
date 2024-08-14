@@ -18,7 +18,7 @@ class Bird:
         self.y = y
         self.tilt = 0
         self.tick_count = 0 #tick_count keeps track of how many frames went by since the bird last jumped
-        self.vel = -10.5
+        self.vel = -10.5 #pixels/frame
         self.height = self.y #height will be used during each jump, to record the height at which the bird starting the jump from
         self.img_count = 0 #the flapping animation cycle goes through 3 different images of the bird, with wings at different angles. 
         #each image should only be on the screen for 5 frames (ANIMATION_TIME = 5). img_count keeps track of hong many frames each image has already been on the screen for

@@ -42,8 +42,8 @@ def draw_window(window, bird, pipes, base, score, pipe_index):
     window.blit(fontLabel, labelRect)
     
     #draw lines that represent what input the neural network is taking
-    pygame.draw.line(window, (200, 0, 0), ((bird.x + bird.img.get_width()/2), (bird.y + bird.img.get_height()/2)), (pipes[pipe_index].x + pipes[pipe_index].PIPE_BOTTOM.get_width()/2, pipes[pipe_index].height), 3)
-    pygame.draw.line(window, (200, 0, 0), ((bird.x + bird.img.get_width()/2), (bird.y + bird.img.get_height()/2)), (pipes[pipe_index].x + pipes[pipe_index].PIPE_BOTTOM.get_width()/2, pipes[pipe_index].bottom), 3)
+    #pygame.draw.line(window, (200, 0, 0), ((bird.x + bird.img.get_width()/2), (bird.y + bird.img.get_height()/2)), (pipes[pipe_index].x + pipes[pipe_index].PIPE_BOTTOM.get_width()/2, pipes[pipe_index].height), 3)
+    #pygame.draw.line(window, (200, 0, 0), ((bird.x + bird.img.get_width()/2), (bird.y + bird.img.get_height()/2)), (pipes[pipe_index].x + pipes[pipe_index].PIPE_BOTTOM.get_width()/2, pipes[pipe_index].bottom), 3)
     
     pygame.display.update()
     
@@ -63,7 +63,7 @@ def main():
         score = 0
         
         while run:
-            clock.tick(100) #limits the FPS that the game runs at. This line limits the FPS of the game to 30 FPS
+            clock.tick(30) #limits the FPS that the game runs at. This line limits the FPS of the game to 30 FPS
             for event in pygame.event.get(): #game loop where event represents some action by the user, such as typing, clicking, etc
                 if event.type == pygame.QUIT: #if the x on the pygame window is clicked
                     run = False

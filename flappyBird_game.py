@@ -89,8 +89,6 @@ def main():
                 base.move()
             draw_window(window, bird, pipes, base, score)
             
-            print(len(pipes))
-            
     pygame.quit()
     
 main()
