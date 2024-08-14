@@ -17,15 +17,15 @@ class Bird:
         self.animation_frames = [BIRD_IMGS[0], BIRD_IMGS[0], BIRD_IMGS[0], BIRD_IMGS[1],
                                  BIRD_IMGS[1], BIRD_IMGS[1], BIRD_IMGS[2], BIRD_IMGS[2], BIRD_IMGS[2]]
         self.animation_frames_count = 0
-        self.current_bird_frame = self.animation_frames[0]
+        self.current_bird = self.animation_frames[0]
     
     def draw(self, window):
         if self.animation_frames_count > 8:
             self.animation_frames_count = 0
-        self.current_bird_frame = self.animation_frames[self.animation_frames_count]
+        self.current_bird = self.animation_frames[self.animation_frames_count]
         self.animation_frames_count += 1
         
-        window.blit(current_bird_frame, (self.x, self.y))
+        window.blit(self.current_bird, (self.x, self.y))
         
 class Base:
     def __init__(self):

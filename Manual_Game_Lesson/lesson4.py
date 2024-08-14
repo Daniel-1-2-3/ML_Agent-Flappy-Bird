@@ -18,7 +18,7 @@ class Bird:
         self.animation_frames = [BIRD_IMGS[0], BIRD_IMGS[0], BIRD_IMGS[0], BIRD_IMGS[1],
                                  BIRD_IMGS[1], BIRD_IMGS[1], BIRD_IMGS[2], BIRD_IMGS[2], BIRD_IMGS[2]]
         self.animation_frames_count = 0
-        self.current_bird_frame = self.animation_frames[0]
+        self.current_bird = self.animation_frames[0]
         
         self.initial_vel = -10.5 #the initial velocitied generated whenever we make the bird jump
         self.tick_count = 0 #how many frames it has been since we last jumped
@@ -45,15 +45,15 @@ class Bird:
         #animating the bird
         if self.animation_frames_count > 8:
             self.animation_frames_count = 0
-        self.current_bird_frame = self.animation_frames[self.animation_frames_count]
+        self.current_bird = self.animation_frames[self.animation_frames_count]
         self.animation_frames_count += 1
         
         #tilting the bird
         #rotate the bird according to the tilt (self.tilt) it is currently set to
-        rotated_bird = pygame.transform.rotate(self.current_bird_frame, self.tilt)
+        rotated_bird = pygame.transform.rotate(self.current_bird, self.tilt)
         #set the origin of the rotation to the center of the bird, instead of the default, which is at the top-left corner of the screen
         #this rectangle is drawn tightly around the bird
-        rectangle = rotated_bird.get_rect(center=self.current_bird_frame.get_rect(topleft = (self.x, self.y)).center)
+        rectangle = rotated_bird.get_rect(center=self.current_bird.get_rect(topleft = (self.x, self.y)).center)
         #renders the bird onto the screen
         window.blit(rotated_bird, rectangle.topleft)
         
@@ -108,7 +108,7 @@ def main():
             if start_run:
                 
                 bird.move()
-                if bird.y + bird.current_bird_frame.get_height()> WIN_HEIGHT or bird.y < 0:
+                if bird.y + bird.current_bird.get_height()> WIN_HEIGHT or bird.y < 0:
                     run = False
                     start_run = False
                 
